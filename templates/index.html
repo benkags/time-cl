@@ -1,0 +1,50 @@
+<!doctype html>
+<head>
+<title>?</title>
+</head>
+<body>
+  <div>
+    {% for i in range(9, -1, -3) %}
+    {% if i > 0 %}
+      <button>{{ i - 2 }}</button>
+      <button>{{ i - 1 }}</button>
+    {% endif %}
+    <button>{{ i }}</button>
+    <br/>
+    {% endfor %}
+  </div>
+  <div>
+    <form method="POST" action="/">
+      <input type="hidden" name="val" />
+      <button name="type" value="IN" type="submit">IN</button>
+      <button name="type" value="OUT" type="submit">OUT</button>
+    </form>
+  </div>
+  {% if hrs %}
+  <div>
+          <p>Hrs this period:</p>
+          <p>{{ hrs }} </p>
+          <p>Message:</p>
+          <p>Happy new year</p>
+  </div>
+  {% endif %}
+<script type="text/javascript">
+    var btns = document.getElementsByTagName("button");
+    var digits = []; 
+    var current;
+    for (var btn of btns) {
+            btn.onclick = function(e, el) {
+                current = e.srcElement.innerText;
+                if (current === 'IN' || current === 'OUT') {
+                   var val = parseInt(digits.join(""));
+                   var valEl = document.getElementsByName('val')[0];
+                   valEl.value = val;
+                   digits = [];
+                } else {
+                  digits.push(current);
+                }
+            };
+    };
+</script>
+</body>
+

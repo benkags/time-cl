@@ -1,0 +1,4 @@
+token.pickle
+venv/
+*.swp
+__pycache__/
